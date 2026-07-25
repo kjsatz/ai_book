@@ -90,15 +90,24 @@ If you skip a step, the failure looks different depending on the library:
 
 ### Avoiding the gate
 
-Only Stable Diffusion has a drop-in open substitute. In the `9_stable_diffusion_*`
-notebooks, set:
+If you'd rather not wait on Meta's approval, `unsloth/Llama-3.2-1B` and
+`NousResearch/Llama-3.2-1B` are ungated re-uploads of the same weights. Set
+`model_id` to either in the chapter 2 and 3 notebooks. They are third-party
+mirrors rather than Meta's own repo, so the usual caution about who you download
+weights from applies; both orgs are well known in the ecosystem.
+
+Stable Diffusion has an open substitute too. In the `9_stable_diffusion_*`
+notebooks:
 
 ```python
 model_id = "stable-diffusion-v1-5/stable-diffusion-v1-5"
 ```
 
-That checkpoint is ungated. The chapter's argument doesn't depend on which of
-the two you use, though the images differ.
+The chapter's argument doesn't depend on which of the two you use, though the
+images differ.
+
+Gemma has no equivalent mirror, so `7_mech_interp` needs the real license
+acceptance.
 
 ## Data the notebooks can't download
 
