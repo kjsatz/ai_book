@@ -37,3 +37,6 @@ smalldiffusion
 
 # Dimensionality reduction
 umap-learn
+
+# numba (via umap-learn) resolves to a version that cannot build without this
+numpy<2.5
