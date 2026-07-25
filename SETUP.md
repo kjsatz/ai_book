@@ -112,10 +112,18 @@ Two things aren't fetchable and have to be supplied by hand:
   AI_BOOK_AFHQ_DIR=~/Downloads/afhq/train jupyter lab
   ```
 
-- **Precomputed loss landscapes** for the wormhole figures in
-  `2_gradient_descent`, which loads `.npy` files from `wormhole_merged/` and
-  `apr_29_2/` under the export directory. These come from long runs of
-  `2_wormhole.ipynb`; the rest of that notebook works without them.
+- **Precomputed loss landscapes** for the last two sections of
+  `2_gradient_descent` (2.7 Wormhole and 2.8 Wikitext), which load `.npy` files
+  from `wormhole_merged/` and `apr_29_2/` under the export directory.
+
+  These aren't practically reproducible: each file is a 512x512 grid whose every
+  point is a forward pass of Llama-3.2-1B, so one 65-frame sweep is on the order
+  of 17M forward passes. `2_wormhole.ipynb` does the same kind of computation but
+  ships with `num_points=32`, and the plotting code indexes row 250 of a 512x512
+  array, so its output isn't a drop-in substitute.
+
+  Everything up to section 2.7 runs without them, including the main loss
+  landscape contour plot, which uses `data/loss_landscape.npy` from this repo.
 
 ## Where output goes
 
